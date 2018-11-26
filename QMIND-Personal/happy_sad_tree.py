@@ -7,10 +7,18 @@ Created on Thu Nov  8 11:56:16 2018
 
 
 import csv
-import numpy as np
 from sklearn import tree
-#spotify api commands
 from spotify_api_client import search, search_all, get
+#functions
+#creates new list with all happy songs (index 1) or sad songs (index 0)
+def sortList(in_list,index):
+    out_list = []
+    for i in range(len(in_list)):
+        if in_list[i][20] == 1:
+            out_list.append(in_list[i])
+    return out_list
+
+    
 
 with open('song_list.csv','r') as csv_file:
     feat_list = list(csv.reader(csv_file))
